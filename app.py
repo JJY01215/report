@@ -27,8 +27,8 @@ accuracy = accuracy_score(y, y_pred)
 f1 = f1_score(y, y_pred, average='weighted')
 # 題目六
 new= [[100, 75]]
-new_data_scaled = scaler.transform(new)
-prediction = clf.predict(new_data_scaled)
+new_scaled = scaler.transform(new)
+prediction = clf.predict(new_scaled)
 
 # 答案一
 wrong = (y_pred != y).sum()
