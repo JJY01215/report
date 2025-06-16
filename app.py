@@ -1,7 +1,7 @@
-import pandas as pd
-from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score, f1_score
+import pandas as pd#資料處理
+from sklearn.preprocessing import StandardScaler#標準化
+from sklearn.svm import SVC#支援向量機
+from sklearn.metrics import accuracy_score, f1_score#計算準確率, F1分數
 
 # 題目一
 df = pd.read_csv('pokemon.csv')
@@ -12,17 +12,17 @@ df = df.dropna(subset=['Attack', 'Defense'])
 # 題目三
 scaler = StandardScaler()
 
-# 題目四
+
 df = df[df['Type1'].isin(['Normal', 'Fighting', 'Ghost'])]
 X = scaler.fit_transform(df[['Attack', 'Defense']]) 
 y = df['Type1']
-
+# 題目四
 clf = SVC()
 clf.fit(X, y)
-
 y_pred = clf.predict(X)
 
 # 題目五
+wrong = (y_pred != y).sum()
 accuracy = accuracy_score(y, y_pred)
 f1 = f1_score(y, y_pred, average='weighted')
 # 題目六
@@ -31,7 +31,6 @@ new_scaled = scaler.transform(new)
 prediction = clf.predict(new_scaled)
 
 # 答案一
-wrong = (y_pred != y).sum()
 print(f"錯誤分類個數：{wrong}")
 
 # 答案二
