@@ -35,10 +35,10 @@ wrong = (y_pred != y).sum()
 print(f"錯誤分類個數：{wrong}")
 
 # 答案二
-print(f"準確度 Accuracy：{accuracy:.4f}")
+print(f"準確度：{accuracy:.4f}")
 
 # 答案三
-print(f"F1-score：{f1:.4f}")
+print(f"F1：{f1:.4f}")
 
 # 答案四
 print(f"寶可夢預測為：{prediction[0]}")
